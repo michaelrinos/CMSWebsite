@@ -7,5 +7,7 @@ namespace CMSWebsite.Services
     {
         Task<RazerView> GetRazerView(string viewPath);
         Task<RazerView> GetRazerViewLikeLocation(string viewPath);
+        void UpdateRazerView(object fromDb);
+        Task CreateRazerView(RazerView view);
     }
 }

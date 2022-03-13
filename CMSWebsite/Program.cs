@@ -40,4 +40,6 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+SeedData.EnsurePopulated(app, Configuration.GetConnectionString("CMSConnection"));
+
 app.Run();
