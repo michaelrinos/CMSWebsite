@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMSWebsite", "CMSWebsite\CMSWebsite.csproj", "{47AAE183-CE5A-4351-9C6C-C4B3B147C8A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reflection", "Reflection\Reflection.csproj", "{33998037-D226-4193-A042-EC577FB50322}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47AAE183-CE5A-4351-9C6C-C4B3B147C8A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47AAE183-CE5A-4351-9C6C-C4B3B147C8A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47AAE183-CE5A-4351-9C6C-C4B3B147C8A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47AAE183-CE5A-4351-9C6C-C4B3B147C8A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33998037-D226-4193-A042-EC577FB50322}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33998037-D226-4193-A042-EC577FB50322}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33998037-D226-4193-A042-EC577FB50322}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33998037-D226-4193-A042-EC577FB50322}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0E10FD2-1816-4594-BF52-8DE97330AFFC}
+	EndGlobalSection
+EndGlobal

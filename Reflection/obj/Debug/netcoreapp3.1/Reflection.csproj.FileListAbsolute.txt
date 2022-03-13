@@ -1,0 +1,10 @@
+C:\Git\SportsStore\SportsStore\Reflection\bin\Debug\netcoreapp3.1\Reflection.deps.json
+C:\Git\SportsStore\SportsStore\Reflection\bin\Debug\netcoreapp3.1\Reflection.dll
+C:\Git\SportsStore\SportsStore\Reflection\bin\Debug\netcoreapp3.1\Reflection.pdb
+C:\Git\SportsStore\SportsStore\Reflection\obj\Debug\netcoreapp3.1\Reflection.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\SportsStore\SportsStore\Reflection\obj\Debug\netcoreapp3.1\Reflection.AssemblyInfoInputs.cache
+C:\Git\SportsStore\SportsStore\Reflection\obj\Debug\netcoreapp3.1\Reflection.AssemblyInfo.cs
+C:\Git\SportsStore\SportsStore\Reflection\obj\Debug\netcoreapp3.1\Reflection.csproj.CoreCompileInputs.cache
+C:\Git\SportsStore\SportsStore\Reflection\obj\Debug\netcoreapp3.1\Reflection.dll
+C:\Git\SportsStore\SportsStore\Reflection\obj\Debug\netcoreapp3.1\Reflection.pdb
+C:\Git\SportsStore\SportsStore\Reflection\obj\Debug\netcoreapp3.1\Reflection.csproj.AssemblyReference.cache

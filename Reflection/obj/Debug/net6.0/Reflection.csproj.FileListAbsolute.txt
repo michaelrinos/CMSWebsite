@@ -1,0 +1,12 @@
+C:\Git\CMSWebsite\Reflection\obj\Debug\net6.0\Reflection.csproj.AssemblyReference.cache
+C:\Git\CMSWebsite\Reflection\obj\Debug\net6.0\Reflection.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\CMSWebsite\Reflection\obj\Debug\net6.0\Reflection.AssemblyInfoInputs.cache
+C:\Git\CMSWebsite\Reflection\obj\Debug\net6.0\Reflection.AssemblyInfo.cs
+C:\Git\CMSWebsite\Reflection\obj\Debug\net6.0\Reflection.csproj.CoreCompileInputs.cache
+C:\Git\CMSWebsite\Reflection\bin\Debug\net6.0\Reflection.deps.json
+C:\Git\CMSWebsite\Reflection\bin\Debug\net6.0\Reflection.dll
+C:\Git\CMSWebsite\Reflection\bin\Debug\net6.0\Reflection.pdb
+C:\Git\CMSWebsite\Reflection\obj\Debug\net6.0\Reflection.dll
+C:\Git\CMSWebsite\Reflection\obj\Debug\net6.0\refint\Reflection.dll
+C:\Git\CMSWebsite\Reflection\obj\Debug\net6.0\Reflection.pdb
+C:\Git\CMSWebsite\Reflection\obj\Debug\net6.0\ref\Reflection.dll
