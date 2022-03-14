@@ -1,6 +1,8 @@
 using CMSWebsite;
+using CMSWebsite.Models;
 using CMSWebsite.Services;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
+using Microsoft.EntityFrameworkCore;
 using Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +21,14 @@ builder.Services.AddScoped<ISqlDataProviderCMS, SqlDataProviderCMS>();
 
 
 builder.Services.AddTransient<ICMSService, CMSService>();
+
+// AddDbCotext allows you to configure it at the same time.
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("ConnectionString")
+        )
+);
+
 
 
 var app = builder.Build();
@@ -40,6 +50,6 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-SeedData.EnsurePopulated(app, Configuration.GetConnectionString("CMSConnection"));
+//SeedData.EnsurePopulated(app, builder.Configuration.GetConnectionString("CMSConnection"), new CMSService());
 
 app.Run();

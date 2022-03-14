@@ -29,6 +29,11 @@ namespace CMSWebsite.Services
             throw new NotImplementedException();
         }
 
+        public int GetRazerViewCount()
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<RazerView> GetRazerViewLikeLocation(string viewPath)
         {
             throw new NotImplementedException();

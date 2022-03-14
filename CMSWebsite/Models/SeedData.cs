@@ -1,20 +1,22 @@
-﻿namespace CMSWebsite.Models
+﻿using CMSWebsite.Services;
+
+namespace CMSWebsite.Models
 {
     public static class SeedData
     {
-        public static void EnsurePopulated(IApplicationBuilder app, string connectionString)
+        public static void EnsurePopulated(IApplicationBuilder app, string connectionString, ICMSService cMSService)
         {
             ApplicationDbContext context = app.ApplicationServices.GetRequiredService<ApplicationDbContext>();
-            context.Database.Migrate();
+            context.Database.EnsureCreated();
             //EnsureProducts(context);
             EnsureViews(context);
 
-            EnsureViewsCMS(connectionString);
+            EnsureViewsCMS(connectionString, cMSService);
         }
 
-        private static void EnsureViewsCMS(string con)
+        private static void EnsureViewsCMS(string con, ICMSService cMSService)
         {
-            var p = new ExampleDataProvider(con);
+            var p = cMSService;
             if (!(p.GetRazerViewCount() > 0))
             {
                 var v = new RazerView()
