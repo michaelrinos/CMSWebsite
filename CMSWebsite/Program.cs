@@ -25,7 +25,7 @@ builder.Services.AddTransient<ICMSService, CMSService>();
 // AddDbCotext allows you to configure it at the same time.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(
-        builder.Configuration.GetConnectionString("ConnectionString")
+        builder.Configuration["ConnectionStrings:DefaultConnection"]
         )
 );
 
@@ -50,6 +50,6 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-//SeedData.EnsurePopulated(app, builder.Configuration.GetConnectionString("CMSConnection"), new CMSService());
+SeedData.EnsurePopulated(app, builder.Configuration.GetConnectionString("CMSConnection"), new CMSService());
 
 app.Run();

@@ -6,7 +6,9 @@ namespace CMSWebsite.Models
     {
         public static void EnsurePopulated(IApplicationBuilder app, string connectionString, ICMSService cMSService)
         {
-            ApplicationDbContext context = app.ApplicationServices.GetRequiredService<ApplicationDbContext>();
+            ApplicationDbContext context = app.ApplicationServices
+                .CreateScope().ServiceProvider
+                .GetRequiredService<ApplicationDbContext>();
             context.Database.EnsureCreated();
             //EnsureProducts(context);
             EnsureViews(context);
@@ -92,6 +94,7 @@ namespace CMSWebsite.Models
                 context.Views.AddRange(
                     new RazerView()
                     {
+                        Model = String.Empty,
                         Location = "/NotSpecified.cshtml",
                         LastRequested = null,
                         LastModified = DateTime.Now,
@@ -99,12 +102,14 @@ namespace CMSWebsite.Models
                     },
                     new RazerView()
                     {
+                        Model = String.Empty,
                         Location = "/Editor.cshtml",
                         LastRequested = null,
                         LastModified = DateTime.Now
                     },
                     new RazerView()
                     {
+                        Model = String.Empty,
                         Location = "/EditorBottomResult.cshtml",
                         LastRequested = null,
                         LastModified = DateTime.Now,
@@ -114,6 +119,7 @@ namespace CMSWebsite.Models
                     },
                     new RazerView()
                     {
+                        Model = String.Empty,
                         Location = "/Headers/_Header.cshtml",
                         LastRequested = null,
                         LastModified = DateTime.Now,
