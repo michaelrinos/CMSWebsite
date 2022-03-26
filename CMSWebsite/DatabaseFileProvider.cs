@@ -9,17 +9,15 @@ namespace CMSWebsite
         #region Fields
 
         private string _connection;
-        private readonly ICMSService cMSService;
 
         #endregion // Fields
 
         #region Methods
 
         #region Public
-        public DatabaseFileProvider(string connection, ICMSService cMSService)
+        public DatabaseFileProvider(string connection)
         {
             this._connection = connection;
-            this.cMSService = cMSService;
         }
         public IDirectoryContents GetDirectoryContents(string subpath)
         {
@@ -34,7 +32,7 @@ namespace CMSWebsite
                 var li = subpath.LastIndexOf('/');
                 var ns = subpath.Substring(li == -1 ? 0 : li + 1);
 
-                var result = new DatabaseFileInfo(ns, this.cMSService);
+                var result = new DatabaseFileInfo(_connection, ns);
                 return result.Exists ? result as IFileInfo : new NotFoundFileInfo(subpath);
             }
             else

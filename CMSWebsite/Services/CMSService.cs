@@ -5,10 +5,9 @@ using Reflection.Services;
 
 namespace CMSWebsite.Services
 {
-    public class CMSService : TransactionalService,  ICMSService
+    public class CMSService : TransactionalService, ICMSService
     {
         private readonly IOptions<AppSettings> appSettings;
-		public CMSService() : base(null) { }
 
 		public CMSService(
 			ISqlDataProviderCMS dataProvider,
@@ -19,29 +18,41 @@ namespace CMSWebsite.Services
 			this.appSettings = appSettings;
 		}
 
-        public Task CreateRazerView(RazerView view)
+        public void CreateRazerView(RazerView view)
+        {
+            this.DataProvider.ExecuteProcAsync<RazerView>("[dbo].[CreateRazerView]", view).ConfigureAwait(false);
+
+        }
+
+        public async Task<RazerView> GetRazerView(int razerViewId)
+        {
+            var result = await this.DataProvider.ExecuteProcAsync<RazerView>("[dbo].[GetRazerView]", 
+                new { RazerViewId = razerViewId }).ConfigureAwait(false);
+            return result.FirstOrDefault();
+        }
+
+        public Task<RazerView> GetRazerView(string viewPath)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<RazerView> GetRazerView(string viewPath)
+        public async Task<int> GetRazerViewCount()
         {
-            throw new NotImplementedException();
-        }
-
-        public int GetRazerViewCount()
-        {
-            throw new NotImplementedException();
+            var result = await this.DataProvider.ExecuteProcAsync<int>("[dbo].[GetRazerViewCount]");
+            return result.FirstOrDefault();
         }
 
         public async Task<RazerView> GetRazerViewLikeLocation(string viewPath)
         {
-            throw new NotImplementedException();
+            var result = await this.DataProvider.ExecuteProcAsync<RazerView>("[dbo].[GetRazerViewLikeLocation]", new { Location = viewPath })
+                .ConfigureAwait(false);
+            return result.FirstOrDefault();
+
         }
 
-        public void UpdateRazerView(object fromDb)
+        public void UpdateRazerView(RazerView view)
         {
-            throw new NotImplementedException();
+            this.DataProvider.ExecuteProcAsync<RazerView>("[dbo].[UpdateRazerView]", view);
         }
     }
 }

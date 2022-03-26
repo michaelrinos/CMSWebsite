@@ -104,7 +104,7 @@ namespace CMSWebsite.Controllers
                 }
                 else
                 {
-                    await cmsService.CreateRazerView(view);
+                    cmsService.CreateRazerView(view);
                 }
                 return View("Thanks", view.Location);
             }

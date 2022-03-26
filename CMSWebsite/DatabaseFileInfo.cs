@@ -14,11 +14,10 @@ namespace CMSWebsite
 
         private readonly ICMSService cMSService;
 
-        public DatabaseFileInfo(string viewPath, ICMSService cMSService)
+        public DatabaseFileInfo(string connection, string viewPath)
         {
             _viewPath = viewPath;
-            this.cMSService = cMSService;
-            GetView(viewPath);
+            GetView(connection ,viewPath);
             
         }
         public bool Exists => _exists;
@@ -47,11 +46,11 @@ namespace CMSWebsite
             return new MemoryStream(_viewContent);
         }
 
-        private async void GetView(string viewPath)
+        private async void GetView(string connection, string viewPath)
         {
-            
-            
-            var view = await (this.cMSService.GetRazerView(viewPath) ?? cMSService.GetRazerViewLikeLocation(viewPath));
+
+            var provider = new CMSDataProvider(connection);
+            var view = (provider.GetRazerView(viewPath) ?? provider.GetRazerViewLikeLocation(viewPath));
             if (view == default(RazerView))
                 return;
 

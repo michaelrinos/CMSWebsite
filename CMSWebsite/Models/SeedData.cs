@@ -4,22 +4,28 @@ namespace CMSWebsite.Models
 {
     public static class SeedData
     {
-        public static void EnsurePopulated(IApplicationBuilder app, string connectionString, ICMSService cMSService)
+        public static void EnsurePopulated(IApplicationBuilder app)
         {
-            ApplicationDbContext context = app.ApplicationServices
-                .CreateScope().ServiceProvider
+            var scope = app.ApplicationServices
+                .CreateScope();
+
+            ApplicationDbContext context =
+                scope.ServiceProvider
                 .GetRequiredService<ApplicationDbContext>();
+
+            var cmsService = scope.ServiceProvider.GetRequiredService<ICMSService>();
             context.Database.EnsureCreated();
             //EnsureProducts(context);
             EnsureViews(context);
 
-            EnsureViewsCMS(connectionString, cMSService);
+            EnsureViewsCMS(cmsService);
         }
 
-        private static void EnsureViewsCMS(string con, ICMSService cMSService)
+        private static async void EnsureViewsCMS(ICMSService cMSService)
         {
             var p = cMSService;
-            if (!(p.GetRazerViewCount() > 0))
+            var count = await cMSService.GetRazerViewCount();
+            if (!(count > 0))
             {
                 var v = new RazerView()
                 {
