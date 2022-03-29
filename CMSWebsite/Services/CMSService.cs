@@ -24,6 +24,15 @@ namespace CMSWebsite.Services
 
         }
 
+        public async Task<List<RazerView>> GetAllViews()
+        {
+            var results = await this.DataProvider.ExecuteProcAsync<RazerView>(
+                "[dbo].[GetAllRazerViews]")
+                .ConfigureAwait(false);
+
+            return results.ToList();
+        }
+
         public async Task<RazerView> GetRazerView(int razerViewId)
         {
             var result = await this.DataProvider.ExecuteProcAsync<RazerView>("[dbo].[GetRazerView]", 
@@ -31,9 +40,10 @@ namespace CMSWebsite.Services
             return result.FirstOrDefault();
         }
 
-        public Task<RazerView> GetRazerView(string viewPath)
+        public async Task<RazerView> GetRazerView(string viewPath)
         {
-            throw new NotImplementedException();
+            var result = await this.DataProvider.ExecuteProcAsync<RazerView>("GetRazerViewByLocation", new { Location = viewPath }).ConfigureAwait(false);
+            return result.FirstOrDefault();
         }
 
         public async Task<int> GetRazerViewCount()

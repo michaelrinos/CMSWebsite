@@ -67,7 +67,7 @@ namespace CMSWebsite.Models
         }
         [NotMapped]
         [SqlQueryParameter(Ignore = true)]
-        public string PhysicalPath => null;
+        public string PhysicalPath => Location;
 
         [NotMapped]
         [SqlQueryParameter(Ignore = true)]

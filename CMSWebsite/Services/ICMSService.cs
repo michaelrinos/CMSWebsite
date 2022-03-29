@@ -10,5 +10,7 @@ namespace CMSWebsite.Services
         void UpdateRazerView(RazerView view);
         void CreateRazerView(RazerView view);
         Task<int> GetRazerViewCount();
+
+        Task<List<RazerView>> GetAllViews();
     }
 }

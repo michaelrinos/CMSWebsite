@@ -46,10 +46,9 @@ namespace CMSWebsite.Controllers
         public async Task<IActionResult> Read()
         {
 
-            //var result = await this.cmsService.ViewsGetAll();
+            var result = await this.cmsService.GetAllViews();
 
-
-            return View();
+            return View("/Views/Dynamic/Read.cshtml", result);
         }
 
 
@@ -75,7 +74,7 @@ namespace CMSWebsite.Controllers
                         var view = await (this.cmsService.GetRazerView(location) ?? cmsService.GetRazerViewLikeLocation(location));
                         return View(mode, view ?? new RazerView());
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
                         return View(mode, new RazerView());
                     }
@@ -100,6 +99,7 @@ namespace CMSWebsite.Controllers
                     fromDb.JSContent = view.JSContent;
                     fromDb.CSSContent = view.CSSContent;
                     fromDb.Model = view.Model;
+                    fromDb.LastModified = DateTime.Now;
                     cmsService.UpdateRazerView(fromDb);
                 }
                 else
